@@ -3,6 +3,7 @@
 import Navbar from "../component/Navbar";
 import React, { useState } from 'react';
 import { RiSearchLine } from 'react-icons/ri';
+import Link from 'next/link';
 
 function Page() {
   const [searchTerm, setSearchTerm] = useState('');
@@ -28,12 +29,14 @@ function Page() {
             <RiSearchLine size={20} color="#6B7280" />
           </span>
         </div>
+        <Link href="/jobpage">
         <button
           className="searchbtn"
           onClick={handleSearch}
         >
           Search
         </button>
+        </Link>
         <div className="mt-5">
           <p className="special">Specialization</p>
           <div className="busborder">

@@ -3,6 +3,7 @@
 import Navbar from "../component/Navbar";
 import React, { useState } from 'react';
 import { RiSearchLine } from 'react-icons/ri';
+import Link from 'next/link';
 
 function Page() {
   const [searchTerm, setSearchTerm] = useState('');
@@ -24,15 +25,36 @@ function Page() {
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
           />
+          
           <a className="searchicon" onClick={handleSearch}>
             <RiSearchLine size={20} color="#6B7280" />
           </a>
+          
         </div>
         <div className="mt-4">
           <p className="special">Recommended job for you</p>
           </div>
+          <div className="job-container">
+         {/* Container 1 */}
+          <div className="job-border">
+            <p className="job-title">Bus Driver - PITAM</p>
+            <p className="job-location">Location: Talamban, Tintay, Cebu</p>
+          </div>
+
+          {/* Container 2 */}
+          <div className="job-border">
+            <p className="job-title">Bus Driver - PITAM</p>
+            <p className="job-location">Location: Talamban, Tintay, Cebu</p>
+          </div>
+
+          {/* Container 3 */}
+          <div className="job-border">
+            <p className="job-title">Bus Driver - PITAM</p>
+            <p className="job-location">Location: Talamban, Tintay, Cebu</p>
+          </div>
+        </div>
       </div>
-      {/* other code to be insert */}
+      {/* other code to be inserted */}
     </div>
   );
 }

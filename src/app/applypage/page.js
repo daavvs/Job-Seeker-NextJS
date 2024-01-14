@@ -21,8 +21,32 @@ function Page() {
           <p className="pagetitle">Bus Driver</p>
           </div>
       </div>
-      {/* other code to be insert */}
+      <div className="container">
+        <ul className="infolist">
+          <li>Name: Jacky Taldo</li>
+          <li>Email: jack@gmail.com</li>
+          <li>Phone: +63 995 021 5621</li>
+        </ul>
+        <div className="profilePicture">
+          <img src="./images/loginlogo.png" alt="Logo" />
+        </div>
+      </div>
+
+      <div className="textAreas">
+        <textarea placeholder="Question for the applicant"></textarea>
+        <textarea placeholder="Work Experience"></textarea>
+        <textarea placeholder="Education"></textarea>
+        <textarea placeholder="Resume"></textarea>
+        <textarea placeholder="Address"></textarea>
+        <textarea placeholder="Drivers License"></textarea>
+        <textarea placeholder="Additional information for the employer"></textarea>
+
+        
+      </div>
+      <div><button className="submitButton">Submit Application</button></div>
     </div>
+    
+    
   );
 }
 
