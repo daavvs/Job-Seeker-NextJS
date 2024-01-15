@@ -1,11 +1,20 @@
 "use client";
 
 import Navbar from "../component/Navbar";
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { RiSearchLine } from 'react-icons/ri';
 import Link from 'next/link';
+import { useUserStore } from "@/store";
 
 function Page() {
+  const userStore = useUserStore((state) => state.user)
+
+  useEffect(() => {
+    if (!Object.keys(userStore).length) {
+      window.location.href = '/'
+    }
+  })
+
   const [searchTerm, setSearchTerm] = useState('');
 
   const handleSearch = () => {
@@ -30,12 +39,12 @@ function Page() {
           </span>
         </div>
         <Link href="/jobpage">
-        <button
-          className="searchbtn"
-          onClick={handleSearch}
-        >
-          Search
-        </button>
+          <button
+            className="searchbtn"
+            onClick={handleSearch}
+          >
+            Search
+          </button>
         </Link>
         <div className="mt-5">
           <p className="special">Specialization</p>

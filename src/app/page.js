@@ -2,22 +2,23 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { useUserStore } from '@/store';
 
 
 const Login = () => {
-   
+    const userState = useUserStore()
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [showPassword, setShowPassword] = useState(false);
     const [errorMessage, setErrorMessage] = useState('');
 
     const handleCredentialLogin = async () => {
-        const response = await fetch(process.env.BE_URL + '/auth/login', {
+        const response = await fetch('http://localhost:8000/api/auth/login', {
             headers: {
                 'Content-Type': 'application/json'
             },
             method: 'POST',
-            body: JSON.stringify({ email, password, role: 'bus-operator' })
+            body: JSON.stringify({ email, password, role: 'jobseeker' })
         })
 
         const result = await response.json()
@@ -29,13 +30,13 @@ const Login = () => {
 
         setErrorMessage('')
         userState.setUser(result.data)
-        window.location.href = '/bus-operator'
+        window.location.href = '/home'
     }
 
 
     return (
         <>
-        
+
             <div className='flex items-center justify-center h-screen'>
                 <div className="bg-white border shadow-sm rounded-xl dark:bg-slate-900 dark:border-gray-700 dark:shadow-slate-700/[.7] p-4 w-1/2 ">
                     <div className='flex flex-col gap-10'>
@@ -77,7 +78,7 @@ const Login = () => {
 
                             <div className='flex flex-row gap-1 justify-center w-full'>
                                 <p>Don't have an account?</p>
-                                <Link href='/auth/register' className='text-green-600'>Sign Up</Link>
+                                <Link href='/register' className='text-green-600'>Sign Up</Link>
                             </div>
 
                             <div className='flex flex-row items-center gap-4'>
